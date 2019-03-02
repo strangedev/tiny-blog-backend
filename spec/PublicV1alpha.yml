@@ -16,7 +16,7 @@ tags:
 schemes:
 - "https"
 paths:
-  /entries/byTag:
+  /BlogEntry/byTag:
     get:
       tags:
       - "BlogEntry"
@@ -55,7 +55,7 @@ paths:
               $ref: "#/definitions/BlogEntry"
         400:
           description: "Bad request"
-  /entries/newest:
+  /BlogEntry/newest:
     get:
       tags:
       - "BlogEntry"
@@ -86,7 +86,7 @@ paths:
               $ref: "#/definitions/BlogEntry"
         400:
           description: "Bad request"
-  /tags: {}
+  /Tag: {}
 securityDefinitions: {}
 definitions:
   BlogEntry:
