@@ -1,0 +1,12 @@
+{
+  "name": "tiny-blog-backend",
+  "version": "0.1.0",
+  "description": "Backend for tiny-blog",
+  "main": "index.js",
+  "repository": "https://github.com/strangedev/tiny-blog-backend",
+  "author": "Noah Hummel",
+  "license": "Apache 2.0",
+  "dependencies": {
+    "express": "^4.16.4"
+  }
+}
