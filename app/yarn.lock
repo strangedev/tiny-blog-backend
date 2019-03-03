@@ -2507,10 +2507,20 @@ tar@^4:
     safe-buffer "^5.1.2"
     yallist "^3.0.2"
 
-tiny-blog-model@^0.1.2:
-  version "0.1.2"
-  resolved "https://registry.yarnpkg.com/tiny-blog-model/-/tiny-blog-model-0.1.2.tgz#898c4f4416410fb6f653607efa306e86b3125927"
-  integrity sha512-NwMPbIkknVceJ+HlMaLIi5/NxHzyJ/tPgAsndGTKN9RpmCSyRno2qaQ5N7A162qICyW6KWpE7a/mbD2RRANT4w==
+tiny-blog-db@^0.1.0:
+  version "0.1.0"
+  resolved "https://registry.yarnpkg.com/tiny-blog-db/-/tiny-blog-db-0.1.0.tgz#880e3bbd1c40154fc2810bd98c1bab8a8109c933"
+  integrity sha512-1yPhkm520C9xgbmxLmYBZT9/U9FjdQgDvNjKTyH0lUFKDEe1FkDq0ZdDUcqkPVolWVpFDS6nGABYDjfGwM4MrA==
+  dependencies:
+    fluture "^10.3.1"
+    mongodb "^3.1.13"
+    ramda "^0.26.1"
+    tiny-blog-model "^0.1.6"
+
+tiny-blog-model@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/tiny-blog-model/-/tiny-blog-model-0.1.6.tgz#ed05eb4ac0403f0068bc1b435f67d2caa2c5bfe4"
+  integrity sha512-dGuf8nw0erikUSbaKBl2kRjeM4pcbUZq7XcwCRxB6vrG/4gxU6ms//ycPKEf3FBC7UwY3gwAKFdiwJQtZOSUBw==
   dependencies:
     fluture "^10.3.1"
     mongodb "^3.1.13"

@@ -1,6 +1,6 @@
 import express from "express";
 import * as R from "ramda";
-import {v1alpha} from "tiny-blog-model";
+import {v1alpha} from "tiny-blog-db";
 
 let router = express.Router();
 
@@ -23,12 +23,18 @@ router.get('/byTag', function(req, res) {
 
 router.get('/newest', function(req, res) {
     const store = v1alpha.store("localhost", 27017);
-    store.BlogEntry.view.newest(req.query.offset, req.query.limit).fork(
+    store.BlogEntry.view.newest(req.query.offset, req.query.limit)
+        .map(
+            entries => R.map(
+                blogEntry => blogEntry.marshal(),
+                entries
+            )
+        ).fork(
             console.error,
             results => {
                 console.log(results);
                 res.format({
-                    json: () => res.send(JSON.stringify(results))
+                    json: () => res.send(results)
                 });
             }
         );

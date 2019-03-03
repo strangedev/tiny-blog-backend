@@ -1,3 +1,5 @@
+import {v1alpha} from "tiny-blog-db";
+
 let express = require('express');
 let router = express.Router();
 
@@ -8,7 +10,13 @@ router.use(function timeLog(req, res, next) {
 });
 
 router.get('/', function(req, res) {
-    res.send('all tags');
+    const store = v1alpha.store("localhost", 27017);
+    store.Tag.view.all().fork(
+        console.error,
+        tags => {
+            res.send(tags)
+        }
+    );
 });
 
 
