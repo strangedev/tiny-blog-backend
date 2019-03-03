@@ -8,6 +8,19 @@
   "license": "Apache 2.0",
   "dependencies": {
     "express": "^4.16.4",
-    "mongodb": "^3.1.13"
+    "fluture": "^10.3.1",
+    "future": "^2.3.1",
+    "mongodb": "^3.1.13",
+    "ramda": "^0.26.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.2.3",
+    "@babel/core": "^7.3.4",
+    "@babel/node": "^7.2.2",
+    "@babel/preset-env": "^7.3.4"
+  },
+  "scripts": {
+    "build": "node_modules/.bin/babel src -d build",
+    "server": "node build/index.js"
   }
 }
