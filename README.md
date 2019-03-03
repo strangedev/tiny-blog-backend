@@ -36,4 +36,14 @@ git rebase master
 git submodule update --init --recursive
 ```
 
+### Building
 
+```bash
+yarn run build
+```
+
+### Running locally
+
+```bash
+yarn run server
+```
