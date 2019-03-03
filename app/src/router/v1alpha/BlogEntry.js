@@ -1,9 +1,18 @@
-let express = require('express');
-let router = express.Router();
+import express from "express";
+import * as R from "ramda";
+import * as DB from "../../db"
 
-// middleware that is specific to this router
-router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now());
+let router = express.Router();
+const version = "v1alpha";
+
+// inject default value for query.limit, query.offset
+router.use(function limitAndOffsetDefaults(req, res, next) {
+    if (R.isNil(req.query.limit)) {
+        req.query.limit = 50;
+    }
+    if (R.isNil(req.query.offset)) {
+        req.query.limit = 0;
+    }
     next();
 });
 
@@ -12,7 +21,25 @@ router.get('/byTag', function(req, res) {
 });
 
 router.get('/newest', function(req, res) {
-    res.send('newest');
+    DB.getVersion(version)
+        .fork(
+            console.error,
+            db => {
+                res.send(
+                    JSON.stringify(
+                        R.map(
+                            x => x.marshal(),
+                            db.BlogEntry
+                                .find()
+                                .sort({ date: 1 })
+                                .skip(req.query.offset)
+                                .limit(req.query.limit)
+
+                        )
+                    )
+                )
+            }
+        );
 });
 
 module.exports = router;
