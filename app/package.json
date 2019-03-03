@@ -9,9 +9,9 @@
   "dependencies": {
     "express": "^4.16.4",
     "fluture": "^10.3.1",
-    "future": "^2.3.1",
     "mongodb": "^3.1.13",
-    "ramda": "^0.26.1"
+    "ramda": "^0.26.1",
+    "tiny-blog-model": "^0.1.2"
   },
   "devDependencies": {
     "@babel/cli": "^7.2.3",

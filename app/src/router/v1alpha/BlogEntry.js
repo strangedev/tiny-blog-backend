@@ -1,10 +1,8 @@
 import express from "express";
 import * as R from "ramda";
-import * as DB from "../../db"
-import * as Future from "fluture";
+import {v1alpha} from "tiny-blog-model";
 
 let router = express.Router();
-const version = "v1alpha";
 
 // inject default value for query.limit, query.offset
 router.use(function limitAndOffsetDefaults(req, res, next) {
@@ -17,26 +15,15 @@ router.use(function limitAndOffsetDefaults(req, res, next) {
     next();
 });
 
+router.use(express.json());
+
 router.get('/byTag', function(req, res) {
-    res.send('byTag');
+    res.send("Not Implemented!");
 });
 
 router.get('/newest', function(req, res) {
-    DB.getVersion(version)
-        .chain(db => Future.Future(
-            (reject, resolve) =>  {
-                db.collection("BlogEntry")
-                    .find()
-                    .sort({ date: 1 })
-                    .skip(req.query.offset)
-                    .limit(req.query.limit)
-                    .toArray((err, results) => {
-                        if (R.isNil(err)) resolve(results);
-                        else reject(err);
-                    })
-                }
-            )
-        ).fork(
+    const store = v1alpha.store("localhost", 27017);
+    store.BlogEntry.view.newest(req.query.offset, req.query.limit).fork(
             console.error,
             results => {
                 console.log(results);
