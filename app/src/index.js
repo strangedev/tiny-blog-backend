@@ -1,8 +1,11 @@
 let express = require('express');
 let app = express();
+let cors = require("cors");
 
 let Tag = require('./router/v1alpha/Tag');
 let BlogEntry = require('./router/v1alpha/BlogEntry');
+
+app.use(cors());
 
 app.use('/Tag', Tag);
 app.use('/BlogEntry/', BlogEntry);

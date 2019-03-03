@@ -7,6 +7,7 @@
   "author": "Noah Hummel",
   "license": "Apache 2.0",
   "dependencies": {
+    "cors": "^2.8.5",
     "express": "^4.16.4",
     "fluture": "^10.3.1",
     "mongodb": "^3.1.13",
