@@ -26,24 +26,6 @@ noahhummel/tiny-blog-backend: https://hub.docker.com/r/noahhummel/tiny-blog-back
 
 ## Development
 
-### Init development environment
-
-```bash
-git clone --recurse-submodules git://github.com/strangedev/tiny-blog-backend
-```
-
-### Pull upstream changes
-
-Note: Please contribute changes to app/src/model to: https://github.com/strangedev/tiny-blog-model
-
-See also: https://git-scm.com/book/de/v1/Git-Branching-Rebasing, https://git-scm.com/book/en/v2/Git-Tools-Submodules
-
-```bash
-git fetch
-git rebase master
-git submodule update --init --recursive
-```
-
 ### Building
 
 ```bash
