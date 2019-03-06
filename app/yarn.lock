@@ -2516,9 +2516,9 @@ tar@^4:
     yallist "^3.0.2"
 
 tiny-blog-db@^0.1.0:
-  version "0.1.6"
-  resolved "https://registry.yarnpkg.com/tiny-blog-db/-/tiny-blog-db-0.1.6.tgz#12fecab2fa5218b460496325d4cf7b620eb3f1b6"
-  integrity sha512-ZbAyXthed4eWJcV7TJAQJ4qh0Cpx5KSIMRneNOodHo8hsGqUagvJImUBd+JSPtNkNMKvoRJ06HEpfAtghzMI0Q==
+  version "0.1.7"
+  resolved "https://registry.yarnpkg.com/tiny-blog-db/-/tiny-blog-db-0.1.7.tgz#848a048265e7b3009a763fd23352b47cad116bf5"
+  integrity sha512-/PkB/Xrng30yTYGray3exdHZx5s9WpeFC8CJSJNDkYuSyee1Ug4H8n7+nWN3y1GVEdq/73UTXtdkkk5QL0SlOw==
   dependencies:
     fluture "^10.3.1"
     mongodb "^3.1.13"
