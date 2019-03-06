@@ -1,6 +1,6 @@
 import express from "express";
 import * as R from "ramda";
-import {v1alpha} from "tiny-blog-db";
+import {store} from "tiny-blog-db";
 
 let router = express.Router();
 
@@ -18,12 +18,12 @@ router.use(function limitAndOffsetDefaults(req, res, next) {
 router.use(express.json());
 
 router.get('/byTag', function(req, res) {
-    res.send("Not Implemented!");
+    res.send("Not implemented");
 });
 
 router.get('/newest', function(req, res) {
-    const store = v1alpha.store("localhost", 27017);
-    store.BlogEntry.view.newest(req.query.offset, req.query.limit)
+    const db = store("localhost", 27017);
+    db.BlogEntry.view.newest(req.query.offset, req.query.limit)
         .map(
             entries => R.map(
                 blogEntry => blogEntry.marshal(),
