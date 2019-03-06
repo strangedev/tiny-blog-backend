@@ -3,14 +3,8 @@ import {store} from "tiny-blog-db";
 let express = require('express');
 let router = express.Router();
 
-// middleware that is specific to this router
-router.use(function timeLog(req, res, next) {
-    console.log('Time: ', Date.now());
-    next();
-});
-
 router.get('/', function(req, res) {
-    const db = store("localhost", 27017);
+    const db = store(process.env.MONGODB_HOST, process.env.MONGODB_PORT);
     db.Tag.view.all().fork(
         console.error,
         tags => {
@@ -18,6 +12,5 @@ router.get('/', function(req, res) {
         }
     );
 });
-
 
 module.exports = router;

@@ -4,6 +4,9 @@ import {store} from "tiny-blog-db";
 
 let router = express.Router();
 
+// parse json body for all routes in this router
+router.use(express.json());
+
 // inject default value for query.limit, query.offset
 router.use(function limitAndOffsetDefaults(req, res, next) {
     if (R.isNil(req.query.limit)) {
@@ -17,12 +20,11 @@ router.use(function limitAndOffsetDefaults(req, res, next) {
         req.query.offset = parseInt(req.query.offset);
     }
     next();
+
 });
 
-router.use(express.json());
-
 router.post('/byTag', function(req, res) {
-    const db = store("localhost", 27017);
+    const db = store(process.env.MONGODB_HOST, process.env.MONGODB_PORT);
     if (R.isNil(req.body.tags)) {
         res.sendStatus(400);
     } else {
@@ -44,7 +46,7 @@ router.post('/byTag', function(req, res) {
 });
 
 router.get('/newest', function(req, res) {
-    const db = store("localhost", 27017);
+    const db = store(process.env.MONGODB_HOST, process.env.MONGODB_PORT);
     db.BlogEntry.view.newest(req.query.offset, req.query.limit)
         .map(
             entries => R.map(

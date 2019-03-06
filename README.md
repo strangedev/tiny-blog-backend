@@ -24,6 +24,11 @@ tiny-blog-api: https://github.com/strangedev/tiny-blog-api
 
 noahhummel/tiny-blog-backend: https://hub.docker.com/r/noahhummel/tiny-blog-backend
 
+| Environment variable | Value                                      |
+|----------------------|--------------------------------------------|
+| MONGODB_HOST         | hostname of mongodb to use, e.g. localhost |
+| MONGODB_PORT         | port MONGODB_HOST is listening on          |
+
 ## Development
 
 ### Building
@@ -35,5 +40,7 @@ yarn run build
 ### Running locally
 
 ```bash
+export MONGODB_HOST=localhost
+EXPORT MONGODB_PORT=27017
 yarn run server
 ```
